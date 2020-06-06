@@ -1,0 +1,281 @@
+<view class="tab-wrap">
+	<!-- 导航 -->
+	<view class="nav-wrap">
+		<view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}}" wx:for="{{navList}}"
+		 wx:key="{{index}}">
+			<text>{{item.text}}</text>
+		</view>
+		<!-- 子导航 -->
+		<!-- 发布内的 -->
+		<view hidden="{{currentIndexNav!==0}}" bindtap="activeNavChild" data-index="{{index}}" class="navChild-item {{index===currentIndexNav1?'active':''}}"
+		 wx:for="{{navchildList1}}" wx:key="{{index}}">
+			<text>{{item.text}}</text>
+		</view>
+		<!-- 接单内的 -->
+		<view hidden="{{currentIndexNav!==1}}" bindtap="activeNavChild" data-index="{{index}}" class="navChild-item {{index===currentIndexNav1?'active':''}}"
+		 wx:for="{{navchildList2}}" wx:key="{{index}}">
+			<text>{{item.text}}</text>
+		</view>
+	</view>
+	<!-- 订单列表 -->
+	<view class="content-wrap">
+		<swiper class="tab-box" current="{{currentIndexNav1}}" duration="300" bindchange="switchTab">
+			<swiper-item class="tab-content"  wx:for="{{[0,1,2,3]}}" wx:for-item="tabItem" wx:for-index="index" wx:key="index">
+				<scroll-view  scroll-y="{{true}}"
+					style="height: {{clientHeight?clientHeight+'px':'auto'}};width: 100%;background-color: #ededed;margin-bottom: 30rpx;" 
+					> 
+				<!-- 我的发布 -->
+				<view wx:if="{{currentIndexNav===0}}">
+					<view>
+						<!-- 我的市场发布 -->
+						<view class="orderList" wx:for="{{marketList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{myIssue.users.avatarUrl}}"></image>
+								<text>{{myIssue.users.nickName}}</text>
+							</view>
+							<view>
+								发布类型：跳蚤市场
+							</view>
+							<view>
+								发布内容：{{item.name}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+							<view class="divLine"></view>
+							<view class="operate">
+								<view class="revocation" bindtap="delOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}">
+									<text wx:if="{{item.fettle==='9'}}">删除</text>
+									<text wx:else>撤销</text>
+								</view>
+								<view class="finish" bindtap="finishOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}" data-uid="{{item.uid}}">完单</view>
+							</view>
+							<view class="fettle" data-bid="{{item.bid}}" data-index="0" data-uid="{{item.uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">待接单></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+						<!-- 我的技能发布 -->
+						<view class="orderList" wx:for="{{servList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{myIssue.users.avatarUrl}}"></image>
+								<text>{{myIssue.users.nickName}}</text>
+							</view>
+							<view>
+								发布类型：技能服务
+							</view>
+							<view>
+								发布内容：{{serv[item.servType]}}·{{item.content}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+							<view class="divLine"></view>
+							<view class="operate">
+								<view class="revocation" bindtap="delOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}">
+									<text wx:if="{{item.fettle==='9'}}">删除</text>
+									<text wx:else>撤销</text>
+								</view>
+								<view class="finish" bindtap="finishOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}" data-uid="{{item.uid}}">完单</view>
+							</view>
+							<view class="fettle" data-bid="{{item.bid}}" data-index="1" data-uid="{{item.uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">待接单></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+						<!-- 我的跑腿发布 -->
+						<view class="orderList" wx:for="{{errandList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{myIssue.users.avatarUrl}}"></image>
+								<text>{{myIssue.users.nickName}}</text>
+							</view>
+							<view>
+								发布类型：跑腿代拿
+							</view>
+							<view>
+								<text style="margin-right: 50rpx;">发布内容：{{errand[item.errandType]}}</text>
+								送达地点：{{item.sendLocation}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+							<view class="divLine"></view>
+							<view class="operate">
+								<view class="revocation" bindtap="delOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}">
+									<text wx:if="{{item.fettle==='9'}}">删除</text>
+									<text wx:else>撤销</text>
+								</view>
+								<view class="finish" bindtap="finishOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}" data-uid="{{item.uid}}">完单</view>
+							</view>
+							<view class="fettle" data-bid="{{item.bid}}" data-index="2" data-uid="{{item.uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">待接单></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+						<!-- 我的拼车发布 -->
+						<view class="orderList" wx:for="{{shareList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{myIssue.users.avatarUrl}}"></image>
+								<text>{{myIssue.users.nickName}}</text>
+							</view>
+							<view>
+								发布类型：拼车滴滴
+							</view>
+							<view>
+								目的地位置：{{item.mapEnd}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+							<view class="divLine"></view>
+							<view class="operate">
+								<view class="revocation" bindtap="delOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}">
+									<text wx:if="{{item.fettle==='9'}}">删除</text>
+									<text wx:else>撤销</text>
+								</view>
+								<view class="finish" bindtap="finishOrder" data-bid="{{item.bid}}" data-fettle="{{item.fettle}}" data-uid="{{item.uid}}">完单</view>
+							</view>
+							<view class="fettle" data-bid="{{item.bid}}" data-index="3" data-uid="{{item.uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">待接单></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+					</view>
+					
+				</view>
+				
+				<!-- 我的接单 -->
+				<view wx:if="{{currentIndexNav===1}}">
+					<view>
+						<!-- 我的市场接单 -->
+						<view class="orderList" wx:for="{{marketReceiveList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{item.avatarUrl}}"></image>
+								<text>{{item.nickName}}</text>
+							</view>
+							<view>
+								接单类型：跳蚤市场
+							</view>
+							<view>
+								物品名称：{{goods[item.goodsType]}}·{{item.name}}
+							</view>
+							<view>
+								交易方式：{{order[item.orderType]}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+						
+							<view class="fettle" data-bid="{{item.bid}}" data-index="0" data-uid="{{uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">待接单></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+						<!-- 我的技能接单 -->
+						<view class="orderList" wx:for="{{servReceiveList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{item.avatarUrl}}"></image>
+								<text>{{item.nickName}}</text>
+							</view>
+							<view>
+								接单类型：技能发布
+							</view>
+							<view>
+								接单内容：{{serv[item.servType]}}·{{item.content}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+							
+							<view class="fettle" data-bid="{{item.bid}}" data-index="1" data-uid="{{uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">待接单></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+						<!-- 我的跑腿接单 -->
+						<view class="orderList" wx:for="{{errandReceiveList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{item.avatarUrl}}"></image>
+								<text>{{item.nickName}}</text>
+							</view>
+							<view>
+								接单类型：跑腿代拿
+							</view>
+							<view>
+								接单内容：{{errand[item.errandType]}}
+							</view>
+							<view>
+								送达地点：{{item.sendLocation}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+							
+							<view class="fettle" data-bid="{{item.bid}}" data-index="2" data-uid="{{uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">待接单></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+						<!-- 我的拼车接单 -->
+						<view class="orderList" wx:for="{{shareReceiveList[tabItem]}}" wx:key="{{index}}">
+							<view class="user">
+								<image src="{{item.avatarUrl}}"></image>
+								<text>{{item.nickName}}</text>
+							</view>
+							<view>
+								接单类型：拼单滴滴
+							</view>
+							<view>
+								出发位置：{{item.mapStart}}
+							</view>
+							<view>
+								目的地位置：{{item.mapEnd}}
+							</view>
+							<view>
+								出发时间：{{item.getUpTime}}
+							</view>
+							<view>
+								<text wx:if="{{item.receiveTime===null}}">发布时间：{{item.startTime}}</text>
+								<text wx:elif="{{item.finishTime===null}}">接单时间：{{item.receiveTime}}</text>
+								<text wx:else>完单时间：{{item.finishTime}}</text>
+							</view>
+							
+							<view class="fettle" data-bid="{{item.bid}}" data-index="3" data-uid="{{uid}}" bindtap="goDetail">
+								<text wx:if="{{item.fettle==='0'}}">未开始></text>
+								<text wx:if="{{item.fettle==='1'}}">进行中></text>
+								<text wx:if="{{item.fettle==='9'}}">已完成></text>
+							</view>
+						</view>
+					</view>
+				</view>
+				
+				<text style="text-align: center;position: relative;top: -55rpx;">
+					没有更多了(#^ . ^#)~
+				</text>
+				</scroll-view> 
+			</swiper-item>
+		</swiper>
+	</view>
+		
+</view>

@@ -1,0 +1,66 @@
+/* 轮播 */
+  .slides {
+    margin: 20rpx 30rpx;
+  }
+  .slides swiper {
+    height: 300rpx;
+  }
+  .slides navigator {
+    width: 100%;
+    height: 100%;
+  }
+  .slides image {
+    width: 100%;
+    height: 100%;
+  }
+  /* 功能模块 */
+  .box{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      box-sizing: border-box;
+      margin: 50rpx 0;
+  }
+  .box navigator{
+      width: 330rpx;
+      height: 180rpx;
+      text-align: center;
+      line-height: 180rpx;
+      color: aliceblue;
+      border-radius: 24rpx;
+  }
+  .box_item1, .box_item2{
+    background-image: linear-gradient(180deg, #43CBFF, #667BEA);
+  }
+  .box_item3, .box_item4{
+    background-image: linear-gradient( 180deg, #5599FE , #7A4ADD );
+    
+  }
+  .itemsImage{
+      width: 60rpx;
+      height: 60rpx;
+      position: relative;
+      left: -12rpx;
+      top: 12rpx;
+  }
+  #itemsImage{
+    width: 80rpx;
+    height: 80rpx;
+    position: relative;
+    left: -12rpx;
+    top: 12rpx;
+}
+  /* 发布 +*/
+  .issue_wrap{
+      width: 120rpx;
+      height: 120rpx;
+      position: fixed;
+      right: 50rpx;
+      bottom: 100rpx;
+  }
+  .issue_wrap image{
+      width: 120rpx;
+      height: 120rpx;
+  }
+  

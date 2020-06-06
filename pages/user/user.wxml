@@ -1,0 +1,69 @@
+<view class="page">
+	<!-- 微信头像、昵称的获取 -->
+	<view class="page__hd">
+		<mp-cell>
+			<view slot="title" style="position: relative;margin-right: 10px;background-color: #EDEDED;">
+				<!-- 微信头像 -->
+				<image src="{{userInfo.avatarUrl}}" style="width: 50px; height: 50px; display: block;border: 1px solid #EDEDED;" />
+			</view>
+			<view style="color: white;">
+				<button wx:if="{{!hasUserInfo&&canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" style="background-color: white;float: left;width:250rpx;font-size: 15px;">请登录</button>
+			</view>
+			<!-- 昵称 -->
+			<view style="font-size: 13px;color: white;position: relative;">
+			{{userInfo.nickName}}
+			<!-- 临时登录时，弹出注册 -->
+			<view wx:if="{{!isRegister}}" style="display: flex;">
+			去
+			<navigator url="/pages/register/register" hover-class="none" 
+			style="color: red;text-decoration: underline;">
+			注册	</navigator>
+			，享完整功能
+			</view>
+			</view>
+		</mp-cell>
+	</view>
+	<!-- <view class="userinfo">
+		<button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+		<block wx:else>
+			<image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+			<text class="userinfo-nickname">{{userInfo.nickName}}</text>
+		</block>
+	</view> -->
+	<view class="page__bd">
+		<!-- 个人栏 -->
+		<mp-cells >
+			<!-- 个人信息的完善 -->
+			<mp-cell title="个人信息">
+				<image slot="icon" src="../../images/userzz.png" style="margin-bottom: 5rpx;margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+				<view wx:if="{{isRegister&&hasUserInfo}}" style="float: right; margin-right: 20rpx;">已认证</view>
+				<view wx:else style="float: right; margin-right: 20rpx;">未认证</view>
+			</mp-cell>
+			<!-- 收货地址 -->
+			<navigator url="/pages/userAddress/userAddress" hover-class="none">
+			<mp-cell title="我的地址" link>
+				<image slot="icon" src="../../images/dizhi.png" style="margin-bottom: 5rpx;margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+			</mp-cell>
+			</navigator>
+			<!-- 钱包 -->
+			<mp-cell title="钱包余额" footer="元">
+				<image slot="icon" src="../../images/yue.png" style="margin-bottom: 5rpx;margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+				<view style="float: right; margin-right: 20rpx;">0.00</view>
+			</mp-cell>
+		</mp-cells>
+		<!-- 反馈栏 -->
+		<mp-cells title="  ">
+			<!-- 客服 -->
+			<mp-cell title="联系客服" link>
+				<image slot="icon" src="../../images/fankui.png" style="margin-bottom: 5rpx;margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+				<button class="kefu" open-type="contact">
+					
+				</button>
+			</mp-cell>
+			<!-- 简介 -->
+			<mp-cell title="关于我们" link>
+				<image slot="icon" src="../../images/guanyu.png" style="margin-bottom: 5rpx;margin-right: 16px;vertical-align: middle;width:20px; height: 20px;"></image>
+			</mp-cell>
+		</mp-cells>
+	</view>
+</view>

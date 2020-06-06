@@ -1,0 +1,5 @@
+.button-wrap{
+	position: fixed;
+	bottom: 10rpx;
+	left: 10rpx;
+}

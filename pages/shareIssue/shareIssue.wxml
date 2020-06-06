@@ -1,0 +1,65 @@
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="page">
+	<view class="page__bd">
+		<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+			<mp-cells>
+				<!-- 起点 -->
+				<mp-cell prop="mapStart" title="上车位置">
+					<view  wx:if="{{mapStart.length==0}}" bindtap="getAllAdress1" style="display: inline-block;margin-left: 100rpx;margin-right: 20rpx;">
+						<view style="margin-left: 50rpx;color: cornflowerblue;">选择我的地址</view>
+					</view>
+					<view  wx:else style="display: inline-block;width: 250rpx;font-size: 14px;margin-left: 100rpx;">{{mapStart}}</view>
+					<view bindtap="moveToLocation1" style="display: inline-block;float: right;">
+						<image src="../../images/dizhi.png" style="width: 50rpx;height: 50rpx;"></image>
+					</view>
+				</mp-cell>
+				<!-- 目的地 -->
+				<mp-cell prop="mapEnd" title="目的地">
+					<view  wx:if="{{mapEnd.length==0}}" bindtap="getAllAdress2" style="display: inline-block;margin-left: 100rpx;margin-right: 20rpx;">
+						<view style="margin-left: 50rpx;color: cornflowerblue;">选择我的地址</view>
+					</view>
+					<view  wx:else style="display: inline-block;width: 250rpx;font-size: 14px;margin-left: 100rpx;">{{mapEnd}}</view>
+					<view bindtap="moveToLocation2" style="display: inline-block;float: right;">
+						<image src="../../images/dizhi.png" style="width: 50rpx;height: 50rpx;"></image>
+					</view>
+				</mp-cell>
+				<!-- 预计上车时间 -->
+				<mp-cell prop="getUpTime" title="预计时间">
+					<input bindchange="formInputChange" data-field="getUpTime" style="margin-left: 100rpx;" class="weui-input" type="text" placeholder="请输入详细的上车时间" />
+				</mp-cell>
+				<!-- 拼车人数 -->
+				<mp-cell prop="peopleNum" title="拼车人数" ext-class="" link>
+					<picker  bindchange="bindClassChange" value="{{peopleNum}}" range="{{classes}}">
+						<view style="margin-left: 100rpx;">{{classes[peopleNum]}}
+						</view>
+					</picker>
+				</mp-cell>
+				<!-- QQ -->
+				<mp-cell prop="QQ" title="联系QQ">
+					<input type="number" bindchange="formInputChange"  data-field="QQ" style="margin-left: 100rpx;" class="weui-input" placeholder="请输入联系QQ" />
+				</mp-cell>
+				<!-- 备注 -->
+				<mp-cell prop="remark" ext-class="">
+					<view class="title">备注
+						<textarea value='{{remark}}' bindinput="bindDescribeChange" placeholder="请输入备注信息" style="height: 3.3em;width:700rpx;" />
+						<text style="float: right;">{{remark.length}}/140</text>
+					</view>
+				</mp-cell>
+			</mp-cells>
+		</mp-form>
+		<checkbox-group bindchange="bindAgreeChange">
+            <label class="weui-agree" for="weuiAgree">
+                <view class="weui-agree__text">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                    <view class="weui-agree__checkbox-icon">
+                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                    </view>
+                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                </view>
+            </label>
+        </checkbox-group>
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="submitForm">确定发布</button>
+        </view>
+    </view>
+</view>

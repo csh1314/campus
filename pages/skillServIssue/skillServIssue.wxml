@@ -1,0 +1,58 @@
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="page">
+	<view class="page__bd">
+		<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+			<!-- 服务信息 -->
+			<mp-cells title="发布的服务信息">
+				<!-- 服务名 -->
+				<mp-cell prop="content" title="服务内容" ext-class="">
+					<input bindinput="formInputChange" style="margin-left: 100rpx;" data-field="content" class="weui-input" placeholder="请输入服务内容" />
+				</mp-cell>
+				<!-- 类别 -->
+				<mp-cell prop="class" title="服务类别" ext-class="" link>
+					<picker  bindchange="bindClassChange" value="{{classIndex}}" range="{{classes}}">
+						<view style="margin-left: 100rpx;">{{classes[classIndex]}}
+						</view>
+					</picker>
+				</mp-cell>
+				<!-- 备注 -->
+				<mp-cell prop="remark" ext-class="">
+					<view class="title">备注
+					<textarea value='{{remark}}' bindinput="bindDescribeChange" placeholder="请输入备注信息" style="height: 3.3em;width:700rpx;" />
+					<text style="float: right;">{{remark.length}}/140</text>
+					</view>
+				</mp-cell>
+            </mp-cells>
+			<!-- 交易信息 -->
+			<mp-cells title="交易信息">
+				<!-- 预计价格 -->
+				<mp-cell  prop="price" title="预计价格" ext-class="" footer="元">
+						<input type="number" style="margin-left: 100rpx;margin-top: 5rpx;" bindinput="formInputChange" data-field="price" class="weui-input" placeholder="请输入预计价格" />
+				</mp-cell>
+				<!-- 联系电话 -->
+				<mp-cell  prop="contact" title="联系电话" ext-class="">
+						<input type="number" bindinput="formInputChange" style="margin-left: 100rpx;" data-field="contact" class="weui-input" placeholder="请输入联系电话" />
+				</mp-cell>
+				<!-- 联系QQ -->
+				<mp-cell  prop="QQ" title="联系QQ" ext-class="">
+						<input type="number" bindinput="formInputChange" style="margin-left: 100rpx;" data-field="QQ" class="weui-input" placeholder="请输入联系QQ" />
+				</mp-cell>
+			</mp-cells>
+        </mp-form>
+        <checkbox-group bindchange="bindAgreeChange">
+            <label class="weui-agree" for="weuiAgree">
+                <view class="weui-agree__text">
+                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+                    <view class="weui-agree__checkbox-icon">
+                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+                    </view>
+                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+                </view>
+            </label>
+        </checkbox-group>
+
+        <view class="weui-btn-area">
+            <button class="weui-btn" type="primary" bindtap="submitForm">确定发布</button>
+        </view>
+    </view>
+</view>

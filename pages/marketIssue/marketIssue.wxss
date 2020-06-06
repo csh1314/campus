@@ -1,0 +1,8 @@
+.title{
+	float: left;
+}
+.weui-btn{
+  background: #0D9AFF!important;
+  width: 95% !important;
+  color:#efefef!important;
+}

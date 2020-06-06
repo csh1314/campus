@@ -1,0 +1,35 @@
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+    <mp-cells>
+		<mp-cell prop="class" title="选择板块" ext-class="" link>
+			<picker mode="selector" data-field="lostOrFound" value="{{type}}" range="{{lostOrFound}}" name="lostOrFound" bindchange="bindTypeChange">
+			  <view class="weui-input" style="float: right;">{{lostOrFound[type]}}</view>
+			</picker>
+		</mp-cell>
+	</mp-cells>
+   
+    <view class="weui-cells__title">物品描述</view>
+        <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell">
+                <view class="weui-cell__bd">
+                    <textarea class="weui-textarea" placeholder="请输入地点时间与物品的具体象征" style="height: 4.3em" bindinput="handleContentInput" />
+                    <view class="weui-textarea-counter">{{contentCount}}/200</view>
+                </view>
+            </view>
+        </view>
+        <!-- 图片上传 -->
+		<mp-cells>
+			<mp-cell prop="images" ext-class="">
+				<view class="title">物品图片</view>
+				<mp-uploader bindfail="uploadError" title="" 
+				bindsuccess="uploadSuccess" select="{{selectFile}}" 
+				upload="{{uploadFile}}" binddelete="deleteFile"
+				files="{{files}}"
+				 max-count="6"
+				 >
+			</mp-uploader>
+			</mp-cell>
+		</mp-cells>
+    <!-- 提交表单按钮  -->
+    <button class="weui-btn" id="weui-btn" type="primary" bindtap="submitForm">完成</button>  
+</mp-form>

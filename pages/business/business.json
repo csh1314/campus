@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+	  "mp-searchbar": "../../weui-miniprogram/searchbar/searchbar",
+	   "mp-tabs": "../../weui-miniprogram/tabs/tabs"
+  },
+  "navigationBarTitleText": "接单大厅"
+}

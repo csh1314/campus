@@ -1,0 +1,60 @@
+<view class="page">
+	<view class="page__bd">
+		<!-- 发布物品名 发布人昵称和头像 -->
+		<mp-cells>
+			<mp-cell>
+				<view class="user">
+					<image src="{{avatarUrl}}"></image>
+					<text>{{nickName}}</text>
+					<view class="date">{{startTime}}</view>
+				</view>
+				<view class="title">{{name}}</view>
+				<view class="price">￥{{nowPrice}}</view>
+			</mp-cell> 
+			</mp-cells>
+		<!-- 物品信息 -->
+		<mp-cells title=" ">
+			<!-- 类别 -->
+			<mp-cell title="物品类别" ext-class="" footer="{{goodsType}}">
+			</mp-cell>
+			<!-- 图片上传 -->
+			<mp-cell ext-class="">
+				<view>物品图片</view>
+				<view class="pic">
+					<image src="{{item}}" wx:for="{{imgs}}" wx:key="{{index}}" data-index="{{index}}" bindtap="preImg"></image>
+				</view>
+				<view wx:if="{{imgs===null}}" style="color: #747474;">该发布人未上传相关照片哦(*^▽^*)</view>
+			</mp-cell>
+			<!-- 描述 -->
+			<mp-cell ext-class="">
+				<view>相关描述</view>
+				{{describes}}
+			</mp-cell>
+		</mp-cells>
+		<!-- 交易信息 -->
+		<mp-cells title=" ">
+			<!-- 交易方式 -->
+			<mp-cell title="交易方式" ext-class="" footer="{{orderType}}">
+			</mp-cell>
+			<!-- 联系电话 -->
+			<mp-cell title="联系电话" ext-class="" footer="{{contact}}">
+				<view style="width: 100rpx;margin-left: 120px;border: 1px solid #0077f5;color:#0077f5;text-align: center;" 
+				data-content="{{contact}}" bindtap="copyWord">
+					复制
+				</view>
+			</mp-cell>
+		</mp-cells>
+	</view>
+	<view class="footer">
+		<view style="width: 30%;" bindtap="share">
+			<button class='share' open-type="share">
+			<image src="../../images/fenxiang.png" style="width: 35rpx;height: 35rpx;position: relative;top: 5rpx;"></image>
+			分享
+			</button>
+		</view>
+		<view wx:if="{{fettle==='0'}}" style="width: 70%;background-color:#017AFF;color: white;" bindtap="receiveOrder">接手订单</view>
+		<view wx:elif="{{fettle==='1'}}" style="width: 70%;background-color:rgb(140, 140, 140);color: white;" >进行中</view>
+		<view wx:elif="{{fettle==='9'}}" style="width: 70%;background-color:rgb(140, 140, 140);color: white;" >已完成</view>
+		<view wx:else style="width: 70%;background-color:rgb(140, 140, 140);color: white;" >我的发单</view>
+	</view>
+</view>

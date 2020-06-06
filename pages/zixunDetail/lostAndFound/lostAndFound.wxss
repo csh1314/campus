@@ -1,0 +1,111 @@
+page{
+	background-color: #DAD9DC;
+	overflow: hidden;
+}
+.lostAndFound{
+    background-color: white;
+    width: 98%;
+    height: auto;
+    margin: 0 auto;
+   
+}
+.choose{
+    width: 100%;
+    height: 110rpx;
+    line-height: 100rpx;
+    display: flex;
+    align-items: flex-start;
+}
+.choose view{
+    width: 50%;
+    height: 100rpx;
+    text-align: center;
+}
+.on{
+    color: #5599FE;
+    border-bottom: #5599FE solid 7rpx;
+}
+.someMessage{
+    width: 100%;
+	height: calc(100vh - 75rpx) !important;
+}
+swiper-item{
+    width: 100%;
+    height: calc(100vh - 75rpx) !important;
+}
+
+.userMessage{
+    width: 100%;
+    height: 88rpx;
+    margin-bottom: 12rpx;
+}
+.userMessage .userIamge{
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 50%;
+    float: left;
+}
+.userMessage .userName{
+    font-size: 34rpx;
+    float: left;
+    margin-left: 28rpx;
+    line-height: 88rpx;
+	color: #3c6fb6;
+}
+.userMessage .publishTime{
+    font-size: 28rpx;
+    float: right;
+    color: #9c9b9d;
+    margin-right: 28rpx;
+    line-height: 88rpx;
+}
+.messageList{
+	margin-top: 20rpx;
+	box-sizing: border-box;
+	padding: 20rpx 15rpx;
+	margin-bottom: 20rpx;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	background-color: white;
+	color: #48494b;
+	position: relative;
+}
+.message_detail{
+    width: 100%;
+}
+.message_detail .message_content{
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.message_detail .messageImage{
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+.message_detail .messageImage image{
+    width: 220rpx;
+    height: 220rpx;
+    margin: 0 5rpx 10rpx;
+}
+
+
+.issue_wrap{
+    width: 120rpx;
+    height: 120rpx;
+    position: fixed;
+    right: 50rpx;
+    bottom: 200rpx;
+}
+.issue_wrap image{
+    width: 120rpx;
+    height: 120rpx;
+}

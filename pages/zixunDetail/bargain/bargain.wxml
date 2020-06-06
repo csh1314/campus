@@ -1,0 +1,3 @@
+<view  class="page__noInfo" style="height: 1000rpx;width: 100%;">
+		<image src="../../../images/background.jpg" style="height: 800rpx;width: 100%;"></image>
+</view>

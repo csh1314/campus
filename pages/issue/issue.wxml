@@ -1,0 +1,27 @@
+<view class="page_wrap">
+	<navigator class="box"  url="/pages/marketIssue/marketIssue" hover-class="box-active">
+		<view class="box_item">
+			<image src="../../images/home/sale.png" class="itemsImage"></image>
+		</view>
+		<text class="text">发布到跳蚤市场</text>
+	</navigator>
+	<navigator class="box" url="/pages/skillServIssue/skillServIssue" hover-class="box-active">
+		<view class="box_item">
+			<image src="../../images/home/skill.png" class="itemsImage"></image>
+		</view>
+		<text class="text">发布到技能服务</text>
+	</navigator>
+	<navigator class="box" url="/pages/errandIssue/errandIssue" hover-class="box-active">
+		<view class="box_item">
+			<image src="../../images/home/taking.png" class="itemsImage"></image>
+		</view>
+		<text class="text">发布到跑腿代拿</text>
+	</navigator>
+	<navigator class="box" url="/pages/shareIssue/shareIssue" hover-class="box-active">
+		<view class="box_item">
+			<image src="../../images/home/car.png" class="itemsImage"></image>
+		</view>
+		<text class="text">发布到拼车滴滴</text>
+	</navigator>
+</view>
+

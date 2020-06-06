@@ -1,0 +1,104 @@
+<view class="page">
+	<!-- 搜索 -->
+	<!-- 导航 -->
+	<view class="tab-wrap">
+		<mp-tabs
+		  tabs="{{tabs}}" 
+		  activeTab="{{activeTab}}" 
+		  swiperClass="weui-tabs-swiper"
+		  bindtabclick="onTabCLick"
+		  bindchange="onChange"
+		  activeClass="tab-bar-title__selected">
+		  <block wx:for="{{tabs}}" wx:key="title">
+			<view class="tab-content" slot="tab-content-{{index}}" >
+			<!-- 市场订单列表marketList -->
+			<scroll-view wx:if="{{index===0}}" scroll-y="{{true}}"
+				style="height: {{clientHeight?clientHeight+'px':'auto'}};width: 100%;background-color: #ededed;margin-bottom: 30rpx;" 
+				> 
+			 <view  class="marketList" wx:for="{{marketList}}" wx:key="{{index}}" data-bid="{{item.bid}}" bindtap="goDetail">
+					 <view class="marketList-title" style="color: black;font-weight: bold;">
+						 <text style="color: #fcd350;">
+						 {{goodsType[item.goodsType]}}·</text>{{item.name}}
+					 </view>
+					 <view style="margin-top: 50rpx;margin-bottom: 10rpx;">
+						 交易方式:{{orderType[item.orderType]}}
+					 </view>
+					 <view class="marketList-describes">
+						 描述:<text style="color:#ffaa00;">{{item.describes}}</text>
+					 </view>
+					 <view class="marketList-price">
+					 	 <view>￥{{item.nowPrice}}</view>
+					 	 <view style="color: darkgray;text-decoration: line-through;">￥{{item.beforePrice}}</view>
+					 </view>
+					 
+					 <text class="{{item.fettle==='9'?fettleList[2]:fettleList[item.fettle]}}"></text>
+			 </view>
+			 <text style="text-align: center;position: relative;top: -55rpx;">
+			 	没有更多了(#^ . ^#)~
+			 </text>
+			</scroll-view> 
+			<!-- 技能订单列表skillList -->
+			<scroll-view wx:if="{{index===1}}" scroll-y="{{true}}"
+				style="height: {{clientHeight?clientHeight+'px':'auto'}};margin-bottom: 30rpx;" 
+				> 
+				<view  class="skillList" style="height: 180rpx;" wx:for="{{skillList}}" wx:key="{{index}}" data-bid="{{item.bid}}" bindtap="goDetail" >
+									 <view class="skillList-title" style="margin-top: 15rpx;color: black;font-weight: bold;"><text style="color: #fcd350;">{{servType[item.servType]}}·</text>{{item.content}}</view>
+									 
+									 <view class="skillList-remark" style="margin-top: 40rpx;">
+										 备注:<text style="color:#ffaa00;">{{item.remark}}</text>
+									 </view>
+									 
+									 <view class="skillList-price">
+									 	 <view>￥{{item.price}}</view>
+									 </view>
+									 
+									 <text style="font-size: 70px;position: absolute;top:-10rpx;left: 520rpx;" class="{{item.fettle==='9'?fettleList[2]:fettleList[item.fettle]}}"></text>
+				</view>
+			 <text style="text-align: center;position: relative;top: -55rpx;">
+			 	没有更多了(#^ . ^#)~
+			 </text>
+			</scroll-view> 
+			<!-- 跑腿订单列表errandList -->
+			<scroll-view wx:if="{{index===2}}" scroll-y="{{true}}"
+				style="height: {{clientHeight?clientHeight+'px':'auto'}};margin-bottom: 30rpx;" 
+				> 
+				<view class="errandList" style="height: 300rpx;" wx:for="{{errandList}}" wx:key="{{index}}" data-bid="{{item.bid}}" bindtap="goDetail">
+									 <view class="errandList-title" style="margin-top: 20rpx;color: black;font-weight: bold;"><text style="color: #fcd350;">{{errandType[item.errandType]}}</text></view>
+									 <view style="margin-top: 40rpx;">送达地点:{{item.sendLocation}}</view>
+									 <view>件数及重量:{{item.weight}}</view>
+									 <view class="errandList-price">
+									 	 <view>￥{{item.price}}</view>
+									 </view>
+									 <view class="errandList-remark">
+										 备注:<text style="color:#ffaa00;">{{item.remark}}</text>
+									 </view>
+									 <text class="{{item.fettle==='9'?fettleList[2]:fettleList[item.fettle]}}"></text>
+				</view>
+			 <text style="text-align: center;position: relative;top: -55rpx;">
+			 	没有更多了(#^ . ^#)~
+			 </text>
+			</scroll-view> 
+			<!-- 滴滴订单列表shareList -->
+			<scroll-view wx:if="{{index===3}}" scroll-y="{{true}}"
+				style="height: {{clientHeight?clientHeight+'px':'auto'}};margin-bottom: 30rpx;" 
+				> 
+				<view  class="shareList"  wx:for="{{shareList}}" wx:key="{{index}}" data-bid="{{item.bid}}" bindtap="goDetail">
+									 <view class="shareList-title" style="margin-top: 15rpx;color: black;font-weight: bold;"><text style="color: #fcd350;">拼车滴滴</text></view>
+									 <view style="margin-top: 15rpx;">上车位置: {{item.mapStart}}</view>
+									 <view>目的地位置:{{item.mapEnd}}</view>
+									 <view>预计上车时间:{{item.getUpTime}}</view>
+									 <view class="shareList-remark">
+										 备注:<text style="color:#ffaa00;">{{item.remark}}</text>
+									 </view>
+									 <text class="{{item.fettle==='9'?fettleList[2]:fettleList[item.fettle]}}"></text>
+				</view>
+			 <text style="text-align: center;position: relative;top: -55rpx;">
+			 	没有更多了(#^ . ^#)~
+			 </text>
+			</scroll-view> 
+			</view>
+		  </block>
+		</mp-tabs>
+	</view>
+		
+</view>

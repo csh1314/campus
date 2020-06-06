@@ -1,0 +1,122 @@
+.tab-wrap{
+	height: 100%;
+	background-color: #EDEDED;
+	overflow: hidden;
+}
+.nav-wrap{
+	position: relative;
+	top: 0;
+}
+.nav-wrap view{
+	background-color: white;
+}
+.nav{
+  white-space: nowrap;
+  padding: 5rpx 0;
+}
+.nav-item {
+  display: inline-block;
+  padding: 25rpx 0;
+  text-align: center;
+  font-size: 32rpx;
+  width: 50%;
+  
+}
+.navChild-item{
+	display: inline-block;
+	padding: 25rpx 0;
+	text-align: center;
+	font-size: 28rpx;
+	width: 25%;
+}
+.active {
+  border-bottom: 5rpx solid #1296DB;
+  color: #1296DB;
+}
+.content-wrap{
+	width: 100%;
+}
+.tab-box{
+	width: 100%;
+	height: calc(100vh - 75rpx) !important;
+}
+.tab-content {
+	background-color: #ededed;
+	box-sizing: border-box;
+	padding: 5rpx 20rpx;
+	width: 100%;
+	height: calc(100vh - 75rpx) !important;
+	text-align: center;
+}
+.orderList{
+	box-sizing: border-box;
+	padding: 20rpx 15rpx;
+	margin-bottom: 20rpx;
+	height: 400rpx;
+	width: 100%;
+	border: 1px solid #EDEDED;
+	border-radius: 40rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: space-between;
+	background-color: white;
+	color: #48494b;
+	position: relative;
+}
+.user{
+	height: 70rpx;
+}
+.user image{
+	width: 70rpx;
+	height: 70rpx;
+	border-radius: 40rpx;
+	border: 1px solid #ededed;
+	float: left;
+	margin-right: 20rpx;
+}
+.user text{
+	line-height: 70rpx;
+	color: #3c6fb6;
+}
+/*分割线样式*/
+.divLine{
+ background: #E0E3DA;
+ width: 100%;
+ height: 2rpx;
+ float: left;
+ position: absolute;
+ bottom: 100rpx;
+}
+.operate{
+	width: 100%;
+}
+.operate view{
+	display: inline-block;
+	font-size: 18px;
+}
+.revocation{
+	height: 60rpx;
+	width: 150rpx;
+	border-radius: 40rpx;
+	line-height: 60rpx;
+	background-color:rgb(140, 140, 140);
+	color: white;
+	float: left;
+}
+.finish{
+	float: right;
+	margin-right: 10px;
+	height: 60rpx;
+	width: 150rpx;
+	border-radius: 40rpx;
+	line-height: 60rpx;
+	background-color:#5599FE;
+	color: white;
+}
+.fettle{
+	font-size: 18px;
+	position: absolute;
+	top: 20rpx;
+	right: 30rpx;
+}

@@ -1,0 +1,41 @@
+page{
+	height: 90%;
+	background-image: linear-gradient(180deg, #5599FE, #882CD6);
+}
+.page_wrap{
+	margin-top: 16%;
+}
+.box{
+	width: 550rpx;
+	height: 180rpx;
+	background-color: rgba(0, 170, 255, 0.4);
+	text-align: center;
+	line-height: 200rpx;
+	margin: 50rpx auto 0;
+	border-radius: 28rpx;
+	position: relative;
+	color: white;
+}
+.box-active{
+	background-color: rgba(0, 170, 255, 1);
+}
+.box_item{
+	position: absolute;
+	left: 30rpx;
+	top: 40rpx;
+	width: 100rpx;
+	height: 100rpx;
+	border-radius: 50%;
+	background-color: #5599FE;
+}
+.itemsImage{
+	width: 80rpx;
+	height: 80rpx;
+	position: relative;
+	top: -20rpx;
+}
+.text{
+	position: absolute;
+	left: 180rpx;
+	top: -10rpx;
+}

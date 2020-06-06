@@ -1,0 +1,46 @@
+page{
+	background-color: #DAD9DC;
+}
+
+.top{
+	margin-top: 10px !important;
+	width: 97%;
+	height: 240rpx;
+	margin: 0 auto 20rpx;
+	background-color: white;
+	padding: 18rpx;
+	box-sizing: border-box;
+	border-radius: 8rpx;
+}
+.message_detail{
+    width: 100%;
+    float: left;
+}
+.message_header{
+    color: #5599FE;
+    overflow:hidden; 
+    text-overflow:ellipsis; 
+    white-space:nowrap; 
+}
+.message_content{
+    width: 100%;
+    height: 100prx;
+    margin-top: 18rpx;
+    font-size: 30rpx;
+    overflow: hidden; 
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+}
+.message_publishTime{
+    color: rgb(200, 205, 214);
+    font-size: 24rpx;
+	margin-top: 10rpx;
+}
+image{
+    width: 120rpx;
+    height: 120rpx;
+    margin-top: 12rpx;
+    float: right;
+}

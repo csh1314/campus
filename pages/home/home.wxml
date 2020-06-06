@@ -1,0 +1,45 @@
+<view class="page">
+	<!-- 轮播图 -->
+	<view class="slides">
+	  <swiper indicator-dots circular autoplay interval="2000">
+	    <swiper-item wx:for="{{movies}}" wx:key="{{index}}">
+	      <navigator>
+	        <image mode="aspectFill" src="{{item.url}}"></image>
+	      </navigator>
+	    </swiper-item>
+	  </swiper>
+	</view>
+	<!-- 功能区 -->
+	<view class="page_bd">
+		<view class="box">
+			<!-- 业务1 -->
+			<navigator class="box_item1" url="/pages/business/business?index={{0}}" hover-class="none">
+				<image src="../../images/home/sale.png" class="itemsImage"></image> 
+				<text>跳蚤市场</text>
+			</navigator>
+			<!-- 业务2 -->
+			<navigator class="box_item2" url="/pages/business/business?index={{1}}" hover-class="none">
+				<image src="../../images/home/skill.png" class="itemsImage"></image> 
+				<text>技能服务</text>
+			</navigator>
+		</view>
+		<view class="box">
+			<!-- 业务3 -->
+			<navigator class="box_item3" url="/pages/business/business?index={{2}}" hover-class="none">
+				<image src="../../images/home/taking.png" class="itemsImage"></image> 
+				<text>跑腿代拿</text>
+			</navigator>
+			<!-- 业务4 -->
+			<navigator class="box_item4" url="/pages/business/business?index={{3}}" hover-class="none">
+				<image src="../../images/home/car.png" class="itemsImage"></image> 
+				<text>拼车滴滴</text>
+			</navigator>
+		</view>
+	</view>
+	<!-- 发布 -->
+	<!-- <navigator url="/pages/issue/issue" hover-class="none"> -->
+	<view class="issue_wrap" bindtap="goIssue">
+        <image src="../../images/home/add.png" ></image>
+    </view>
+	<!-- </navigator> -->
+</view>

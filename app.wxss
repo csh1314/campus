@@ -1,0 +1,14 @@
+@import './weui-miniprogram/weui-wxss/dist/style/weui.wxss';
+page{
+	height: 100%;
+	background-color: #EDEDED;
+}
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx 0;
+  box-sizing: border-box;
+} 

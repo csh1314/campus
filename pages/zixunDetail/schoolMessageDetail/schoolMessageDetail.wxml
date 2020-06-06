@@ -1,0 +1,15 @@
+
+<view class="detail-container">
+  <view class="author-date">
+    <text class="author">{{Info.author}}</text>
+    <text class="const-text">发表于{{Info.releaseTime}}</text>
+	<text style="margin-left: 20rpx;font-size: 24rpx;color: #999;">浏览量：{{Info.click}}</text>
+  </view>
+  <text class="title">{{Info.title}}</text>
+  
+  <text class="detail">{{Info.content}}</text>
+  <view style="font-size: 24rpx;color: #999;text-align: center;">
+	  转自{{Info.webSite}}
+	</view>
+</view>
+

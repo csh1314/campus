@@ -1,0 +1,67 @@
+<view class="page_message">
+    <navigator class="box_message" url="/pages/zixunDetail/schoolMessage/schoolMessage" hover-class="none">
+        <view class="message_Image" >
+            <image src="../../images/zixun/school.png" />
+        </view>
+        <text >校方资讯</text>
+    </navigator>
+    <navigator class="box_message" url="/pages/zixunDetail/study/study" hover-class="none">
+        <view class="message_Image" >
+            <image src="../../images/zixun/study.png" />
+        </view>
+        <text >学习部落</text>
+    </navigator>
+    <navigator class="box_message" url="/pages/zixunDetail/community/community" hover-class="none">
+        <view class="message_Image" >
+            <image src="../../images/zixun/community.png" />
+        </view>
+        <text >组织与社团</text>
+    </navigator>
+    <navigator class="box_message" url="/pages/zixunDetail/lostAndFound/lostAndFound" hover-class="none">
+        <view class="message_Image" >
+            <image src="../../images/zixun/lostAndFound.png" />
+        </view>
+        <text >失物招领</text>
+    </navigator>
+    <navigator class="box_message" url="/pages/zixunDetail/bargain/bargain" hover-class="none">
+        <view class="message_Image" >
+            <image src="../../images/zixun/bargain.png" />
+        </view>
+        <text >各方优惠</text>
+    </navigator>
+    <navigator class="box_message" url="/pages/zixunDetail/outside/outside" hover-class="none">
+        <view class="message_Image" >
+            <image src="../../images/zixun/outside.png" />
+        </view>
+        <text >校外来报</text>
+    </navigator>
+</view>
+<view class="tenMessage">
+    <view class="newAndHot">
+        <view class="new {{tab==0 ? 'on' : ''}}"  data-current="0" bindtap="tab_click">最新</view> 
+        <view class="hot {{tab==1 ? 'on' : ''}}"  data-current="1" bindtap="tab_click">最热</view>
+    </view>
+    <swiper current="{{tab}}" class="someMessage" duration="300"  bindchange="tab_slide">
+        <swiper-item class="hotMessage">
+			<scroll-view  scroll-y="{{true}}"
+				style="height: {{clientHeight?clientHeight+'px':'auto'}};width: 100%;background-color: #ededed;margin-bottom: 30rpx;" 
+				> 
+				<view class="bottomTip">
+				    推送到底了，更多的请前往详情板块^_^  
+				</view>
+			</scroll-view>
+        </swiper-item>
+        <swiper-item class="newMessage">
+			<scroll-view  scroll-y="{{true}}"
+				style="height: {{clientHeight?clientHeight+'px':'auto'}};width: 100%;background-color: #ededed;margin-bottom: 30rpx;" 
+				> 
+				<view class="bottomTip">
+				    推送到底了，更多的请前往详情板块^_^  
+				</view>
+            </scroll-view>
+        </swiper-item>
+        
+    </swiper>
+    
+    
+</view>

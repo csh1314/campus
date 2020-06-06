@@ -1,0 +1,52 @@
+page{
+	background-color: white !important;
+}
+.detail-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.author-date {
+  flex-direction: row;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+}
+
+
+.author {
+  font-size: 30rpx;
+  font-weight: 300;
+  margin-left: 20rpx;
+  vertical-align: middle;
+  color: #666;
+}
+
+.const-text {
+  font-size: 24rpx;
+  color: #999;
+  margin-left: 20rpx;
+}
+
+.title {
+  margin-left: 40rpx;
+  font-size: 36rpx;
+  font-weight: 700;
+  margin-top: 30rpx;
+  letter-spacing: 2px;
+  color: #4b556c;
+}
+
+
+
+.detail {
+  color: #666;
+  margin-left: 30rpx;
+  margin-top: 20rpx;
+  margin-right: 30rpx;
+  line-height: 44rpx;
+  letter-spacing: 2px;
+  font-size: 24rpx;
+  font-family: MicroSoft Yahei;
+}
+

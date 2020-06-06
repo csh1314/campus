@@ -1,0 +1,27 @@
+.page__hd{
+	background-color: #5599FE;
+	height: 200rpx;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.avatar image{
+	height: 180rpx;
+	width: 180rpx;
+	border-radius: 180rpx;
+	margin-top: 10rpx;
+}
+.button{
+	width: 250rpx !important;
+	border: 1px solid #ededed;
+	padding-left:0;
+	padding-right:0;
+	font-weight: normal;
+	background-color: #5599FE;
+	color: white;
+}	
+/** 必须“提升指定样式规则的应用优先权（!important）。” **/
+button[disabled] {
+color: white !important;
+background: rgba(85,153,254,0.7)  !important;
+}

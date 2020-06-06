@@ -1,0 +1,14 @@
+<view class="top" wx:for="{{schoolMessage}}" wx:for-item="message" wx:key="index" data-index="{{index}}" bindtap="goDetail">
+		<view class="message_header">
+		    {{message.title}}
+		</view>
+		<view class="message_detail"> 
+		    <view class="message_content">
+		        {{message.brief}}
+		    </view>
+		    <view class="message_publishTime">
+		        {{message.releaseTime}}
+				<text style="float: right;">浏览量：{{message.click}}</text>
+		    </view>
+		</view>
+</view>

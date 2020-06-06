@@ -1,0 +1,58 @@
+<mp-toptips msg="{{error}}" type="error" show="{{error}}"></mp-toptips>
+<view class="page">
+	<mp-form id="form" rules="{{rules}}" models="{{formData}}">
+	<view class="page__hd">
+			<view slot="title" class="avatar">
+				<!-- 默认：微信头像（不可变） -->
+				<image wx:if="{{!hasUserInfo}}" src="{{avatarUrl}}"/>
+			</view>
+	</view>
+	<view class="page__bd">
+		<mp-cells>
+		<!-- 昵称 -->
+		<mp-cell prop="name" title="昵称" >
+			<input bindinput="formInputChange" value="{{name}}" data-field="name" class="weui-input" placeholder="请输入昵称" />
+		</mp-cell>
+		<!-- 默认：性别（不可变） -->
+		<mp-cell prop="gender" title="性别" >
+			<text>{{gender===1?'男':'女'}}</text>
+		</mp-cell>
+		<!-- 邮箱号 -->
+		<mp-cell prop="email"  title="邮箱号" ext-class=" weui-cell_vcode">
+		        <input focus bindinput="formInputChange" data-field="email" class="weui-input" placeholder="请输入邮箱号码"/>
+		        <button slot="footer" class="button" bindtap="sendVcode" disabled="{{disabled}}">
+					{{codeText}}{{counttime}}{{codeTextLast}}
+				</button>
+		</mp-cell>
+		<!-- 验证码 -->
+		<mp-cell  prop="vcode" title="验证码" >
+		        <input type="number" bindinput="formInputChange" data-field="vcode" class="weui-input" placeholder="请输入验证码"/>
+		</mp-cell>
+		</mp-cells>
+		<!-- 认证 -->
+		<mp-cells title="校园卡认证">
+			<mp-cell prop="sname" title="姓名" >
+				<input bindinput="formInputChange" value="{{sname}}" data-field="sname" class="weui-input" placeholder="请输入真实姓名" />
+			</mp-cell>
+			<mp-cell prop="sno" title="学号" >
+				<input type="number" bindinput="formInputChange" value="{{sno}}" data-field="sno" class="weui-input" placeholder="请输入您的学号" />
+			</mp-cell>
+		</mp-cells>
+	</view>
+	</mp-form>
+	<checkbox-group bindchange="bindAgreeChange">
+	            <label class="weui-agree" for="weuiAgree">
+	                <view class="weui-agree__text">
+	                    <checkbox class="weui-agree__checkbox" id="weuiAgree" value="agree" checked="{{isAgree}}" />
+	                    <view class="weui-agree__checkbox-icon">
+	                        <icon class="weui-agree__checkbox-icon-check" type="success_no_circle" size="9" wx:if="{{isAgree}}"></icon>
+	                    </view>
+	                    阅读并同意<navigator url="" class="weui-agree__link">《相关条款》</navigator>
+	                </view>
+	            </label>
+	        </checkbox-group>
+	
+	        <view class="weui-btn-area">
+	            <button class="weui-btn" type="primary" bindtap="submitForm">提交</button>
+	        </view>
+</view>
