@@ -41,7 +41,7 @@
 			<scroll-view wx:if="{{index===1}}" scroll-y="{{true}}"
 				style="height: {{clientHeight?clientHeight+'px':'auto'}};margin-bottom: 30rpx;" 
 				> 
-				<view  class="skillList" style="height: 180rpx;" wx:for="{{skillList}}" wx:key="{{index}}" data-bid="{{item.bid}}" bindtap="goDetail" >
+				<view  class="skillList" style="height: 205rpx;" wx:for="{{skillList}}" wx:key="{{index}}" data-bid="{{item.bid}}" bindtap="goDetail" >
 									 <view class="skillList-title" style="margin-top: 15rpx;color: black;font-weight: bold;"><text style="color: #fcd350;">{{servType[item.servType]}}·</text>{{item.content}}</view>
 									 
 									 <view class="skillList-remark" style="margin-top: 40rpx;">
@@ -85,8 +85,8 @@
 				<view  class="shareList"  wx:for="{{shareList}}" wx:key="{{index}}" data-bid="{{item.bid}}" bindtap="goDetail">
 									 <view class="shareList-title" style="margin-top: 15rpx;color: black;font-weight: bold;"><text style="color: #fcd350;">拼车滴滴</text></view>
 									 <view style="margin-top: 15rpx;">上车位置: {{item.mapStart}}</view>
-									 <view>目的地位置:{{item.mapEnd}}</view>
-									 <view>预计上车时间:{{item.getUpTime}}</view>
+									 <view class="location">目的地位置:{{item.mapEnd}}</view>
+									 <view class="location">预计上车时间:{{item.getUpTime}}</view>
 									 <view class="shareList-remark">
 										 备注:<text style="color:#ffaa00;">{{item.remark}}</text>
 									 </view>

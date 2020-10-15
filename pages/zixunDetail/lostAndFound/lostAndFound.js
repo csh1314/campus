@@ -97,8 +97,8 @@ Page({
 	  	success(res) {
 	  		console.log(res)
 	  		that.setData({
-	  			lostList:res.data.lost.filter(item=>item.releaseType===0),
-				foundList:res.data.lost.filter(item=>item.releaseType===1)
+	  			lostList:res.data.lost.filter(item=>item.releaseType===0).reverse(),
+				foundList:res.data.lost.filter(item=>item.releaseType===1).reverse()
 	  		})
 			
 	  	}

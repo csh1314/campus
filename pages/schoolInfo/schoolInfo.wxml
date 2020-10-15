@@ -37,31 +37,29 @@
     </navigator>
 </view>
 <view class="tenMessage">
-    <view class="newAndHot">
-        <view class="new {{tab==0 ? 'on' : ''}}"  data-current="0" bindtap="tab_click">最新</view> 
-        <view class="hot {{tab==1 ? 'on' : ''}}"  data-current="1" bindtap="tab_click">最热</view>
+    <view class="new">
+        <view>最新消息</view> 
     </view>
-    <swiper current="{{tab}}" class="someMessage" duration="300"  bindchange="tab_slide">
-        <swiper-item class="hotMessage">
-			<scroll-view  scroll-y="{{true}}"
-				style="height: {{clientHeight?clientHeight+'px':'auto'}};width: 100%;background-color: #ededed;margin-bottom: 30rpx;" 
-				> 
-				<view class="bottomTip">
-				    推送到底了，更多的请前往详情板块^_^  
-				</view>
-			</scroll-view>
-        </swiper-item>
-        <swiper-item class="newMessage">
-			<scroll-view  scroll-y="{{true}}"
-				style="height: {{clientHeight?clientHeight+'px':'auto'}};width: 100%;background-color: #ededed;margin-bottom: 30rpx;" 
-				> 
-				<view class="bottomTip">
-				    推送到底了，更多的请前往详情板块^_^  
-				</view>
-            </scroll-view>
-        </swiper-item>
-        
-    </swiper>
-    
-    
+	<scroll-view  scroll-y="{{true}}"
+		style="height: {{clientHeight?clientHeight+'px':'auto'}};width: 100%;background-color: #ededed;margin-bottom: 30rpx;" 
+		> 
+		<view class="messageList" wx:for="{{newMessage}}" wx:key="{{index}}">
+			<view class="userMessage">
+			   <image src="{{item.avatarUrl}}" class="userIamge"></image>
+			   <text class="userName">{{item.nickName}}</text>
+			   <text class="publishTime">{{item.releaseTime}}</text>
+			</view>
+			<view class="message_detail"> 
+			    <view class="message_content">
+			      {{item.content}}
+			    </view>
+			    <view class="messageImage">
+			        <image src="{{img}}" wx:for="{{item.image}}" wx:for-item="img" wx:key="{{index}}" data-imgs="{{item.image}}" data-index="{{index}}" bindtap="preImg"></image>
+			    </view> 
+			</view>
+		</view>
+		<view class="bottomTip">
+		    仅显示三天内的发布信息，更多的请前往详情板块^_^  
+		</view>
+	</scroll-view>
 </view>

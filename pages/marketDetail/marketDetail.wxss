@@ -1,4 +1,6 @@
-
+.page__bd{
+	margin-bottom: 150rpx;
+}
 /* 头部 */
 .user{
 	height: 150rpx;

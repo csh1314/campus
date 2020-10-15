@@ -20,7 +20,7 @@
 				</mp-cell>
 				<!-- 联系电话 -->
 				<mp-cell prop="contact" title="联系电话" ext-class="">
-						<input bindinput="formInputChange" value="{{contact}}"  data-field="contact" class="weui-input" placeholder="请输入联系电话" />
+						<input type="number" bindinput="formInputChange" value="{{contact}}"  data-field="contact" class="weui-input" placeholder="请输入联系电话" />
 				</mp-cell>
             </mp-cells>
 		</mp-form>

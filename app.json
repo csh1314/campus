@@ -1,16 +1,17 @@
 {
 	"pages": [
+
     
-   "pages/home/home",
+    "pages/home/home",
     "pages/user/user",
     "pages/schoolInfo/schoolInfo",
-   "pages/business/business",
-   "pages/issue/issue",
+    "pages/business/business",
+    "pages/issue/issue",
     "pages/marketDetail/marketDetail",
     "pages/skillDetail/skillDetail",
     "pages/errandDetail/errandDetail",
     "pages/shareDetail/shareDetail",
-  "pages/register/register",
+    "pages/register/register",
     "pages/myOrder/myOrder",
 		"pages/zixunDetail/lostAndFound/lostAndFound",
     "pages/zixunDetail/schoolMessage/schoolMessage",

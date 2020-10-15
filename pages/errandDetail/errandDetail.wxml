@@ -33,14 +33,14 @@
 		<mp-cells title=" ">
 			<!-- 联系QQ -->
 			<mp-cell title="联系QQ" ext-class="" footer="{{QQ}}">
-				<view style="width: 100rpx;margin-left: 127px;border: 1px solid #0077f5;color:#0077f5;text-align: center;"
+				<view style="width: 100rpx;position: absolute;right: 40%;bottom:25%;border: 1px solid #0077f5;color:#0077f5;text-align: center;"
 				data-content="{{QQ}}" bindtap="copyWord">
 					复制
 				</view>
 			</mp-cell>
 			<!-- 联系电话 -->
 			<mp-cell title="联系电话" ext-class="" footer="{{contact}}">
-				<view style="width: 100rpx;margin-left: 120px;border: 1px solid #0077f5;color:#0077f5;text-align: center;"
+				<view style="width: 100rpx;position: absolute;right: 40%;bottom:25%;border: 1px solid #0077f5;color:#0077f5;text-align: center;"
 				data-content="{{contact}}" bindtap="copyWord">
 					复制
 				</view>
